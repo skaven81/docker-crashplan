@@ -7,7 +7,7 @@ the download URL and tarball name in the Dockerfile.
 After building the container, run it like so:
 
 ```
-$ docker run -d --rm -h crashplan --name mycrashplan \
+$ docker run -d -h crashplan --name mycrashplan \
         -v /raid/crashplan-conf/conf:/opt/crashplan/conf \
         -v /raid/crashplan-conf/cache:/opt/crashplan/cache \
         -v /raid/crashplan-conf/var:/var/lib/crashplan \
