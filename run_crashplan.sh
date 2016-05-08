@@ -24,7 +24,7 @@ if [ ! -f /var/lib/crashplan/.ui_info ]; then
         echo "Waiting for /var/lib/crashplan/.ui_info to appear"
     done
 else
-    sleep 5
+    sleep 10
 fi
 
 DONE=0
