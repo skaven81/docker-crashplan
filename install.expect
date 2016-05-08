@@ -1,0 +1,41 @@
+#!/usr/bin/expect
+# vim: syntax=expect ts=4 sts=4 sw=4 expandtab
+
+
+spawn ./install.sh
+
+expect "Press enter to continue with installation"
+send "\n"
+
+expect "Press enter to read the EULA"
+send "\n"
+
+expect -re "--More--"
+send "q"
+
+expect "Do you accept"
+send "yes\n"
+
+expect "What parent directory"
+send "/opt\n"
+
+expect "link the CrashPlan executable"
+send "\n"
+
+expect "store incoming backup data"
+send "/crashplan-store\n"
+
+expect "SYSV"
+send "\n"
+
+expect "runlevel"
+send "\n"
+
+expect "Is this correct"
+send "y\n"
+
+set timeout 60
+
+expect "Press Enter to complete installation"
+send "\n"
+
