@@ -22,7 +22,8 @@ and `/crashplan-store` are required, and MUST be mounted on persistent
 storage outside the crashplan container.
 
 Add additional volumes (`raid5` and `geofront-root` above) to expose
-data to CrashPlan to perform backups.
+data to CrashPlan to perform backups.  You should use the `:ro` option
+to ensure your data to be backed up can only be read, not written.
 
 The first time you start the container, the UI will probably come up
 bound to `127.0.0.1`.  Just restart the container and it will come
