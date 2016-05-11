@@ -7,12 +7,12 @@ the download URL and tarball name in the Dockerfile.
 After building the container, run it like so:
 
 ```
-$ docker run -d -h crashplan --name mycrashplan \
+$ docker run -d -h crashplan --name mycrashplan --restart=always \
         -v /raid/crashplan-conf/conf:/opt/crashplan/conf \
         -v /raid/crashplan-conf/cache:/opt/crashplan/cache \
         -v /raid/crashplan-conf/var:/var/lib/crashplan \
         -v /raid/crashplan-store:/crashplan-store \
-        -v /raid:/raid5 -v /:/geofront-root \
+        -v /raid:/raid5:ro -v /:/geofront-root:ro \
         -p 4242:4242 -p 4243:4243 \
         crashplan
 ```
