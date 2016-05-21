@@ -7,7 +7,7 @@ the download URL and tarball name in the Dockerfile.
 After building the container, run it like so:
 
 ```
-$ docker run -d -h crashplan --name mycrashplan --restart=always \
+$ docker run -d --net=host --name mycrashplan --restart=always \
         -v /raid/crashplan-conf/conf:/opt/crashplan/conf \
         -v /raid/crashplan-conf/cache:/opt/crashplan/cache \
         -v /raid/crashplan-conf/var:/var/lib/crashplan \
@@ -33,3 +33,8 @@ machine.  Edit the IP address and auth token based on the UI info
 of the server.  Then run `CrashPlanDesktop` and it should connect
 to the remote server.
 
+Running with `--net=host` seems to be the best way to make it work,
+especially if your container host is NATed.  Running the container
+inside Docker's private network seems to cause problems; the service
+constantly loses contact with CrashPlan Central and its peer backup
+destinations.
