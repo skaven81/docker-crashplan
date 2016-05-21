@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PATH=/usr/bin:/usr/sbin:/bin:/sbin
+
 # Ensure we can connect to the console remotely without
 # needing an SSH tunnel
 sed -i -e 's~serviceHost>[0-9\.locahst]*<~serviceHost>0.0.0.0<~' /opt/crashplan/conf/my.service.xml
@@ -30,6 +32,8 @@ fi
 DONE=0
 trap "DONE=1" INT
 while true; do
+    echo "***** IP INFO *****"
+    ifconfig eth0
     echo "***** UI INFO *****"
     cat /var/lib/crashplan/.ui_info
     echo
