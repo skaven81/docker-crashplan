@@ -6,9 +6,9 @@ VOLUME [ "/var/lib/crashplan", "/opt/crashplan/conf", "/opt/crashplan/cache", "/
 
 WORKDIR /
 
-RUN [ "/usr/bin/yum", "-y", "--nogpgcheck", "install", "which", "wget", "expect" ]
+RUN [ "/usr/bin/yum", "-y", "--nogpgcheck", "install", "which", "wget", "expect", "net-tools" ]
 
-RUN [ "/usr/bin/wget", "https://download.code42.com/installs/linux/install/CrashPlan/CrashPlan_4.6.0_Linux.tgz" ]
+RUN [ "/usr/bin/wget", "https://download.code42.com/installs/linux/install/CrashPlan/CrashPlan_4.7.0_Linux.tgz" ]
 
 RUN [ "/usr/bin/tar", "-xzf", "CrashPlan_4.6.0_Linux.tgz" ]
 
