@@ -34,6 +34,7 @@ trap "DONE=1" INT
 while true; do
     echo "***** UI INFO *****"
     cat /var/lib/crashplan/.ui_info
+    echo
     echo "Put the above data into /var/lib/crashplan/.ui_info and run"
     echo "CrashPlanDesktop to connect to the server"
     echo
