@@ -8,7 +8,7 @@ WORKDIR /
 
 RUN [ "/usr/bin/yum", "-y", "--nogpgcheck", "install", "which", "wget", "expect", "net-tools" ]
 
-RUN [ "/usr/bin/wget", "https://download.code42.com/installs/linux/install/CrashPlan/CrashPlan_4.7.0_Linux.tgz", "-O", "crashplan.tgz" ]
+RUN [ "/usr/bin/wget", "https://download.code42.com/installs/linux/install/CrashPlan/CrashPlan_4.8.0_Linux.tgz", "-O", "crashplan.tgz" ]
 
 RUN [ "/usr/bin/tar", "-xzf", "crashplan.tgz" ]
 
