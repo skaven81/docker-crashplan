@@ -32,10 +32,10 @@ fi
 DONE=0
 trap "DONE=1" INT
 while true; do
-    echo "***** IP INFO *****"
-    ifconfig eth0
     echo "***** UI INFO *****"
     cat /var/lib/crashplan/.ui_info
+    echo "Put the above data into /var/lib/crashplan/.ui_info and run"
+    echo "CrashPlanDesktop to connect to the server"
     echo
     sleep 600
     [ ${DONE} -eq 1 ] && exit
