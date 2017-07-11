@@ -7,15 +7,6 @@ spawn ./install.sh
 expect "Press enter to continue with installation"
 send "\n"
 
-expect "Press enter to read the EULA"
-send "\n"
-
-expect -re "--More--"
-send "q"
-
-expect "Do you accept"
-send "yes\n"
-
 expect "What parent directory"
 send "/opt\n"
 
