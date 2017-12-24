@@ -35,7 +35,8 @@ while true; do
     echo "***** UI INFO *****"
     cat /var/lib/crashplan/.ui_info
     echo
-    echo "Put the above data into /var/lib/crashplan/.ui_info and run"
+    echo "Put the above data into /var/lib/crashplan/.ui_info, replacing"
+    echo "0.0.0.0 with the IP of the Docker host, and run"
     echo "CrashPlanDesktop to connect to the server"
     echo
     sleep 600

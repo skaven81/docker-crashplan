@@ -6,9 +6,9 @@ VOLUME [ "/var/lib/crashplan", "/opt/crashplan/conf", "/opt/crashplan/cache", "/
 
 WORKDIR /
 
-RUN [ "/usr/bin/yum", "-y", "--nogpgcheck", "install", "which", "wget", "expect", "net-tools" ]
+RUN [ "/usr/bin/yum", "-y", "--nogpgcheck", "install", "which", "wget", "expect", "net-tools", "libXScrnSaver" ]
 
-RUN [ "/usr/bin/wget", "https://web-ebm-msp.crashplanpro.com/client/installers/CrashPlanPRO_4.9.0_1436674888490_33_Linux.tgz", "-O", "crashplan.tgz" ]
+RUN [ "/usr/bin/wget", "https://web-lbm-msp.crashplanpro.com/client/installers/CrashPlanPRO_4.9.0_1436674888490_33_Linux.tgz", "-O", "crashplan.tgz" ]
 
 RUN [ "/usr/bin/tar", "-xzf", "crashplan.tgz" ]
 
@@ -20,7 +20,7 @@ COPY [ "install.expect", "install.expect" ]
 
 RUN [ "./install.expect" ]
 
-EXPOSE 4242 4243
+EXPOSE 4245
 
 WORKDIR /opt/crashplan
 
