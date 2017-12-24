@@ -13,7 +13,7 @@ $ docker run -d --net=host --name mycrashplan --restart=always \
         -v /raid/crashplan-conf/var:/var/lib/crashplan \
         -v /raid/crashplan-store:/crashplan-store \
         -v /raid:/raid5:ro -v /:/geofront-root:ro \
-        -p 4242:4242 -p 4243:4243 \
+        -p 4245:4245 \
         crashplan
 ```
 
@@ -33,8 +33,3 @@ machine.  Edit the IP address and auth token based on the UI info
 of the server.  Then run `CrashPlanDesktop` and it should connect
 to the remote server.
 
-Running with `--net=host` seems to be the best way to make it work,
-especially if your container host is NATed.  Running the container
-inside Docker's private network seems to cause problems; the service
-constantly loses contact with CrashPlan Central and its peer backup
-destinations.
