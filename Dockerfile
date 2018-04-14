@@ -8,7 +8,7 @@ WORKDIR /
 
 RUN [ "/usr/bin/yum", "-y", "--nogpgcheck", "install", "which", "wget", "expect", "net-tools", "libXScrnSaver" ]
 
-RUN [ "/usr/bin/wget", "https://web-lbm-msp.crashplanpro.com/client/installers/CrashPlanPRO_4.9.0_1436674888490_33_Linux.tgz", "-O", "crashplan.tgz" ]
+RUN [ "/usr/bin/wget", "https://web-eam-msp.crashplanpro.com/client/installers/CrashPlanSmb_6.7.1_1512021600671_4615_Linux.tgz", "-O", "crashplan.tgz" ]
 
 RUN [ "/usr/bin/tar", "-xzf", "crashplan.tgz" ]
 
@@ -19,8 +19,6 @@ WORKDIR /crashplan-install
 COPY [ "install.expect", "install.expect" ]
 
 RUN [ "./install.expect" ]
-
-EXPOSE 4245
 
 WORKDIR /opt/crashplan
 

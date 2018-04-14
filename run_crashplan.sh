@@ -32,13 +32,7 @@ fi
 DONE=0
 trap "DONE=1" INT
 while true; do
-    echo "***** UI INFO *****"
-    cat /var/lib/crashplan/.ui_info
-    echo
-    echo "Put the above data into /var/lib/crashplan/.ui_info, replacing"
-    echo "0.0.0.0 with the IP of the Docker host, and run"
-    echo "CrashPlanDesktop to connect to the server"
-    echo
-    sleep 600
+    tail -F /opt/crashplan/log/*.0 /opt/crashplan/log/app.log
     [ ${DONE} -eq 1 ] && exit
+    sleep 1
 done
