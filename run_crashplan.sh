@@ -1,6 +1,17 @@
 #!/bin/bash
 
-PATH=/usr/bin:/usr/sbin:/bin:/sbin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+
+# If called with command line arguments, just exec a shell
+if [ -n "$@" ]; then
+    exec "$@"
+fi
+
+# electron requires a D-Bus machine ID to run
+dbus-uuidgen > /var/lib/dbus/machine-id
+
+# Start up VNC server so we can run CrashPlanDesktop
+vncserver :0 -geometry 1280x1024 -xstartup /opt/crashplan/vnc_xstartup
 
 # Ensure we can connect to the console remotely without
 # needing an SSH tunnel
@@ -32,7 +43,7 @@ fi
 DONE=0
 trap "DONE=1" INT
 while true; do
-    tail -F /opt/crashplan/log/*.0 /opt/crashplan/log/app.log
+    tail -F /opt/crashplan/log/*.0 /opt/crashplan/log/app.log /root/.vnc/*.log
     [ ${DONE} -eq 1 ] && exit
     sleep 1
 done
