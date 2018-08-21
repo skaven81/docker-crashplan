@@ -30,6 +30,12 @@ RUN mkdir -p /root/.vnc; \
     echo "crashplan" | vncpasswd -f > /root/.vnc/passwd; \
     chmod 600 /root/.vnc/passwd
 
+# electron requires a D-Bus machine ID to run,
+# and I suspect that this is also how the GUID
+# is generated/checked.
+RUN echo 8a5374d927a6d7bcc970e1715b3929db > /var/lib/dbus/machine-id
+
+
 COPY [ "vnc_xstartup", "vnc_xstartup" ]
 COPY [ "run_crashplan.sh", "run_crashplan.sh" ]
 

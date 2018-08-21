@@ -7,10 +7,11 @@ if [ -n "$@" ]; then
     exec "$@"
 fi
 
-# electron requires a D-Bus machine ID to run
-dbus-uuidgen > /var/lib/dbus/machine-id
-
 # Start up VNC server so we can run CrashPlanDesktop
+rm -f /tmp/.X* 2>/dev/null
+rm -f /tmp/.X11-unix/X* 2>/dev/null
+rm -f /usr/spool/sockets/X11/* 2>/dev/null
+rm -f /root/.vnc/docker-crashplan* 2>/dev/null
 vncserver :0 -geometry 1280x1024 -xstartup /opt/crashplan/vnc_xstartup
 
 # Ensure we can connect to the console remotely without
