@@ -8,11 +8,11 @@ WORKDIR /
 
 RUN /usr/bin/yum -y --nogpgcheck install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm; \
     /usr/bin/yum -y --nogpgcheck install which wget expect net-tools libXScrnSaver tigervnc tigervnc-server \
-        fluxbox xterm gtk2 GConf2 alsa-lib google-noto-sans-fonts
+        fluxbox xterm gtk2 GConf2 alsa-lib google-noto-sans-fonts gtk3
 
 EXPOSE 5900
 
-RUN [ "/usr/bin/wget", "https://web-ham-msp.crashplanpro.com/client/installers/CrashPlanSmb_6.7.2_1512021600672_5609_Linux.tgz", "-O", "crashplan.tgz" ]
+RUN [ "/usr/bin/wget", "https://www.crashplanpro.com/client/installers/CrashPlanSmb_6.8.3_1525200006683_951_Linux.tgz", "-O", "crashplan.tgz" ]
 
 RUN [ "/usr/bin/tar", "-xzf", "crashplan.tgz" ]
 
