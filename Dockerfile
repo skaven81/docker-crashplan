@@ -8,7 +8,7 @@ WORKDIR /
 
 RUN /usr/bin/yum -y --nogpgcheck install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm; \
     /usr/bin/yum -y --nogpgcheck install which wget expect net-tools libXScrnSaver tigervnc tigervnc-server \
-        fluxbox xterm gtk2 GConf2 alsa-lib google-noto-sans-fonts gtk3
+        fluxbox xterm gtk2 GConf2 alsa-lib google-noto-sans-fonts gtk3 xorg-x11-fonts-*
 
 EXPOSE 5900
 
