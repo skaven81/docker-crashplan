@@ -12,7 +12,7 @@ RUN /usr/bin/yum -y --nogpgcheck install https://dl.fedoraproject.org/pub/epel/e
 
 EXPOSE 5900
 
-RUN [ "/usr/bin/wget", "https://www.crashplanpro.com/client/installers/CrashPlanSmb_6.8.3_1525200006683_951_Linux.tgz", "-O", "crashplan.tgz" ]
+RUN [ "/usr/bin/wget", "https://www.crashplanpro.com/client/installers/CrashPlanSmb_6.9.0_1525200006690_827_Linux.tgz", "-O", "crashplan.tgz" ]
 
 RUN [ "/usr/bin/tar", "-xzf", "crashplan.tgz" ]
 
